@@ -8,9 +8,12 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
 
 import com.techelevator.model.Park;
 
+
+@Component
 public class ParkJdbcDao implements ParkDao
 {
 
@@ -31,6 +34,7 @@ public class ParkJdbcDao implements ParkDao
 		while (results.next())
 		{
 			allParks.add(mapRowToPark(results));
+			System.out.println(results);
 		}
 		return allParks;
 	}
@@ -40,6 +44,7 @@ public class ParkJdbcDao implements ParkDao
 		Park parks = new Park();
 
 		parks.setParkcode(results.getString("parkcode"));
+		parks.setParkdescription(results.getString("parkdescription"));
 		parks.setParkname(results.getString("parkname"));
 		parks.setState(results.getString("state"));
 		parks.setAcreage(results.getInt("acreage"));
@@ -49,7 +54,7 @@ public class ParkJdbcDao implements ParkDao
 		parks.setClimate(results.getString("climate"));
 		parks.setYearfounded(results.getInt("yearfounded"));
 		parks.setInspirationalquote(results.getString("inspirationalquote"));
-		parks.setInsporationquotesource(results.getString("insporationquotesource"));
+		parks.setInspirationalquote(results.getString("inspirationalquotesource"));
 		parks.setEntryfee(results.getInt("entryfee"));
 		parks.setNumberofanimalspecies(results.getInt("numberofanimalspecies"));
 

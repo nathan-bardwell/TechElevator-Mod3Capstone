@@ -14,7 +14,7 @@ public class Park
 	private int yearfounded;
 	private int annualvisitorcount;
 	private String inspirationalquote;
-	private String insporationquotesource;
+	private String inspirationalquotesource;
 	private String parkdescription;
 	private int entryfee;
 	private int numberofanimalspecies;
@@ -22,7 +22,7 @@ public class Park
 
 	public Park(String parkcode, String parkname, String state, int acreage, int elevationinfeet, float milesoftrail,
 			int numberofcampsites, String climate, int yearfounded, int annualvisitorcount, String inspirationalquote,
-			String insporationquotesource, String parkdescription, int entryfee, int numberofanimalspecies)
+			String inspirationalquotesource, String parkdescription, int entryfee, int numberofanimalspecies)
 	{
 		super();
 		this.parkcode = parkcode;
@@ -36,7 +36,7 @@ public class Park
 		this.yearfounded = yearfounded;
 		this.annualvisitorcount = annualvisitorcount;
 		this.inspirationalquote = inspirationalquote;
-		this.insporationquotesource = insporationquotesource;
+		this.inspirationalquotesource = inspirationalquotesource;
 		this.parkdescription = parkdescription;
 		this.entryfee = entryfee;
 		this.numberofanimalspecies = numberofanimalspecies;
@@ -180,15 +180,15 @@ public class Park
 	}
 
 
-	public String getInsporationquotesource()
+	public String getInspirationalquotesource()
 	{
-		return insporationquotesource;
+		return inspirationalquotesource;
 	}
 
 
-	public void setInsporationquotesource(String insporationquotesource)
+	public void setInsporationquotesource(String inspirationalquotesource)
 	{
-		this.insporationquotesource = insporationquotesource;
+		this.inspirationalquotesource = inspirationalquotesource;
 	}
 
 
