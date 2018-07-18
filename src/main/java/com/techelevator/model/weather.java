@@ -1,6 +1,6 @@
 package com.techelevator.model;
 
-public class weather
+public class Weather
 {
 	private String parkcode;
 	private int fivedayforcastvalue;
@@ -9,7 +9,7 @@ public class weather
 	private String forcast;
 	
 	
-	public weather(String parkcode, int fivedayforcastvalue, int low, int high, String forcast)
+	public Weather(String parkcode, int fivedayforcastvalue, int low, int high, String forcast)
 	{
 		super();
 		this.parkcode = parkcode;
@@ -20,7 +20,7 @@ public class weather
 	}
 
 
-	public weather()
+	public Weather()
 	{
 		
 	}

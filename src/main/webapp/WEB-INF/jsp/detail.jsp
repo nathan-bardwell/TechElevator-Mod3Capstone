@@ -15,6 +15,8 @@
 			<tr>
 				<td><c:out value="${park.parkdescription}" /></td>
 			</tr>
+			</table>
+			<table class="table">
 			<tr>
 				<th>Annual Visitors</th>
 				<td><c:out value="${park.annualvisitorcount}" /> visitors</td>

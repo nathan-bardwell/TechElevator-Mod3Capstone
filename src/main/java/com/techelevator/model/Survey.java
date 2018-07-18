@@ -1,6 +1,6 @@
 package com.techelevator.model;
 
-public class survey
+public class Survey
 {
 		
 	private int surveyid;
@@ -10,7 +10,7 @@ public class survey
 	private String activitylevel;
 	
 	
-	public survey(int surveyid, String parkcode, String emailaddress, String state, String activitylevel)
+	public Survey(int surveyid, String parkcode, String emailaddress, String state, String activitylevel)
 	{
 		super();
 		this.surveyid = surveyid;
@@ -21,7 +21,7 @@ public class survey
 	}
 
 
-	public survey()
+	public Survey()
 	{
 		
 	}
@@ -91,3 +91,4 @@ public class survey
 	
 	
 }
+
