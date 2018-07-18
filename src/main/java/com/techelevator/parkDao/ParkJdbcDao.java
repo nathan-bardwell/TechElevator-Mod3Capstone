@@ -34,7 +34,6 @@ public class ParkJdbcDao implements ParkDao
 		while (results.next())
 		{
 			allParks.add(mapRowToPark(results));
-			System.out.println(results);
 		}
 		return allParks;
 	}
@@ -50,6 +49,25 @@ public class ParkJdbcDao implements ParkDao
 		park = mapRowToPark(result);
 		}
 		return park;
+	}
+	
+	@Override
+	public List<Park> getPopularParks() {
+		List<Park> popularParks = new ArrayList<>();
+		String allParksSql = "SELECT park.*, COUNT(park.parkcode) as survey_count "
+						   + " FROM park "
+						   + " JOIN survey_result"
+						   + " ON park.parkcode = survey_result.parkcode"
+						   + " GROUP BY park.parkcode"
+						   + " ORDER BY survey_count DESC"
+						   + " LIMIT 5";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(allParksSql);
+		while (results.next())
+		{
+			popularParks.add(mapRowToPark(results));
+			System.out.println(results);
+		}
+		return popularParks;
 	}
 
 	private Park mapRowToPark(SqlRowSet results)

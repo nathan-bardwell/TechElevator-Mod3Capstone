@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.techelevator.model.Survey;
 import com.techelevator.parkDao.ParkDao;
+import com.techelevator.parkDao.WeatherDao;
 
 @Controller
 public class ParkController
@@ -16,6 +17,9 @@ public class ParkController
 
 	@Autowired
 	private ParkDao parkDao;
+	
+	@Autowired
+	private WeatherDao weatherDao;
 
 	@RequestMapping(path = { "/", "/home" }, method = RequestMethod.GET)
 	public String getAllParks(ModelMap modelHolder)
@@ -25,14 +29,16 @@ public class ParkController
 	}
 	
 	@RequestMapping(path="/detail", method=RequestMethod.GET)
-	public String getParkDetail(@RequestParam String parkcode, ModelMap modelHolder) {
+	public String getParkDetail(@RequestParam String parkcode, ModelMap modelHolder, ModelMap weatherHolder) {
 		modelHolder.put("park", parkDao.getParkDetail(parkcode));
+		weatherHolder.put("weatherInfo", weatherDao.getParkWeather(parkcode));
 		return "detail";
 	}
 	
 	@RequestMapping(path="/survey", method=RequestMethod.GET)
 	public String getSurveyForm(ModelMap modelHolder) {
-		return "Survey";
+		
+		return "survey";
 	}
 	
 	@RequestMapping(path="/survey", method=RequestMethod.POST)
@@ -47,8 +53,10 @@ public class ParkController
 	
 	@RequestMapping(path="/surveyResults", method=RequestMethod.GET)
 	public String getSurveyResults(ModelMap modelHolder) {
+		modelHolder.put("popularParks", parkDao.getPopularParks());
 		return "surveyResults";
 	}
+	
 	
 	
 }

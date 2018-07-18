@@ -50,6 +50,48 @@
 				<td><c:out value="${park.numberofanimalspecies}" /> different species</td>
 			</tr>
 		</table>
+		<div class="row" id="weather">
+			<div class="col-sm">Today
+				<div id="todayImg">
+					<c:url var="todayWeatherUrl" value="/img/weather/${weatherInfo[0].forcast}.png"/>
+					<img src="${todayWeatherUrl}" alt="${weatherInfo[0].forcast}"/><br>
+					Low: <c:out value="${weatherInfo[0].low}"/>&#xb0<br>
+					High: <c:out value="${weatherInfo[0].high}"/>&#xb0
+				</div>
+			</div>
+			<div class="col-sm">Day 2
+				<div>
+					<c:url var="weatherUrl" value="/img/weather/${weatherInfo[1].forcast}.png"/>
+					<img src="${weatherUrl}" alt="${weatherInfo[1].forcast}"/><br>
+					Low: <c:out value="${weatherInfo[1].low}"/>&#xb0<br>
+					High: <c:out value="${weatherInfo[1].high}"/>&#xb0
+				</div>
+			</div>
+			<div class="col-sm">Day 3
+				<div>
+					<c:url var="weatherUrl" value="/img/weather/${weatherInfo[2].forcast}.png"/>
+					<img src="${weatherUrl}" alt="${weatherInfo[2].forcast}"/><br>
+					Low: <c:out value="${weatherInfo[2].low}"/>&#xb0<br>
+					High: <c:out value="${weatherInfo[2].high}"/>&#xb0
+				</div>
+			</div>
+			<div class="col-sm">Day 4
+				<div>
+					<c:url var="weatherUrl" value="/img/weather/${weatherInfo[3].forcast}.png"/>
+					<img src="${weatherUrl}" alt="${weatherInfo[3].forcast}"/><br>
+					Low: <c:out value="${weatherInfo[3].low}"/>&#xb0<br>
+					High: <c:out value="${weatherInfo[3].high}"/>&#xb0
+				</div>
+			</div>
+			<div class="col-sm">Day 5
+				<div>
+					<c:url var="weatherUrl" value="/img/weather/${weatherInfo[4].forcast}.png"/>
+					<img src="${weatherUrl}" alt="${weatherInfo[4].forcast}"/><br>
+					Low: <c:out value="${weatherInfo[4].low}"/>&#xb0<br>
+					High: <c:out value="${weatherInfo[4].high}"/>&#xb0
+				</div>
+			</div>
+		</div>
 	
 </div>
 

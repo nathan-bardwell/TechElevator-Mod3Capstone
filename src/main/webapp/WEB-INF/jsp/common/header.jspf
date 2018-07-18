@@ -14,10 +14,14 @@
   </head>
   <body>
   <%-- header image --%>
-<div class="container-fluid">
-	<div class="card mb-3">
-		<c:url var="parkSkyImgUrl" value="/img/parks/parksky.jpeg" />
-		<img class="card-img-top" src="${parkSkyImgUrl}" alt="Card image cap">
+<div class="fixed-top" >
+	<div id="headerImg">
+		<%-- <c:url var="parkSkyImgUrl" value="/img/parks/parksky.jpg" />
+		<img class="card-img-top" src="${parkSkyImgUrl}" alt="Card image cap"> --%>
+		
+		<c:url value="/img/logo.png" var="logoUrl"/>
+		<img id="logo" src="${logoUrl}" alt="NPGeek Logo"/>
+		
 	</div>
 
 	<%-- navbar --%>
@@ -25,7 +29,7 @@
 	<c:url var="homeUrl" value="/home" />
 	<c:url var="surveyUrl" value="/survey" />
 
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		<a class="navbar-brand" href="#">NPGeek</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarNav" aria-controls="navbarNav"
@@ -42,4 +46,5 @@
 		</div>
 	</nav>
 	</div>
+	<div class="container-fluid contents">
   

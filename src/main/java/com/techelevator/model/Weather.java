@@ -85,6 +85,7 @@ public class Weather
 		this.forcast = forcast;
 	}
 	
-	
+	//convertedTemp = ((userTemp - 32) / 1.8);    
+	//
 	
 }
