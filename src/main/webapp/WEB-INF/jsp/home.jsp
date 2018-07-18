@@ -12,8 +12,8 @@
 		<c:forEach var="parks" items="${park}">
 			<div class="parksdiv">
 				<c:url var="parkImgUrl" value="/img/parks/${parks.parkcode.toLowerCase()}.jpg" />
-				<c:url var="detailUrl" value="/detail" />
-				<a href="${detaillUrl}"><img src="${parkImgUrl}" class="img-fluid"></a>
+				<c:url var="detailUrl" value="/detail"/>
+				<a href="${detailUrl}?parkcode=${parks.parkcode}"><img src="${parkImgUrl}" class="img-fluid"></a>
 			</div>
 			<div class="parkNotes">
 				<c:out value="${parks.parkname}" />

@@ -38,6 +38,19 @@ public class ParkJdbcDao implements ParkDao
 		}
 		return allParks;
 	}
+	
+	@Override
+	public Park getParkDetail(String parkcode) {
+		String parkDetailSql = "SELECT * FROM park WHERE parkcode = ?";
+		SqlRowSet result = jdbcTemplate.queryForRowSet(parkDetailSql, parkcode);
+		Park park = new Park();
+		while (result.next())
+		{
+		
+		park = mapRowToPark(result);
+		}
+		return park;
+	}
 
 	private Park mapRowToPark(SqlRowSet results)
 	{
@@ -54,11 +67,14 @@ public class ParkJdbcDao implements ParkDao
 		parks.setClimate(results.getString("climate"));
 		parks.setYearfounded(results.getInt("yearfounded"));
 		parks.setInspirationalquote(results.getString("inspirationalquote"));
-		parks.setInspirationalquote(results.getString("inspirationalquotesource"));
+		parks.setInspirationquotesource(results.getString("inspirationalquotesource"));
 		parks.setEntryfee(results.getInt("entryfee"));
 		parks.setNumberofanimalspecies(results.getInt("numberofanimalspecies"));
+		parks.setAnnualvisitorcount(results.getInt("annualvisitorcount"));
 
 		return parks;
 	}
+
+	
 
 }

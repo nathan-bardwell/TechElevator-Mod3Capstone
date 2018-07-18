@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.techelevator.parkDao.ParkDao;
 
@@ -21,4 +22,21 @@ public class ParkController
 		modelHolder.put("park", parkDao.getAllParks());
 		return "home";
 	}
+	
+	@RequestMapping(path="/detail", method=RequestMethod.GET)
+	public String getParkDetail(@RequestParam String parkcode, ModelMap modelHolder) {
+		modelHolder.put("park", parkDao.getParkDetail(parkcode));
+		return "detail";
+	}
+	
+	@RequestMapping(path="/survey", method=RequestMethod.GET)
+	public String getSurveyForm(ModelMap modelHolder) {
+		return "survey";
+	}
+	
+	@RequestMapping(path="/surveyResults", method=RequestMethod.GET)
+	public String getSurveyResults(ModelMap modelHolder) {
+		return "surveyResults";
+	}
+	
 }

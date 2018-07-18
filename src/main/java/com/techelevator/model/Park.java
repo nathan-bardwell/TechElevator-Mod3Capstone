@@ -186,7 +186,7 @@ public class Park
 	}
 
 
-	public void setInsporationquotesource(String inspirationalquotesource)
+	public void setInspirationquotesource(String inspirationalquotesource)
 	{
 		this.inspirationalquotesource = inspirationalquotesource;
 	}
