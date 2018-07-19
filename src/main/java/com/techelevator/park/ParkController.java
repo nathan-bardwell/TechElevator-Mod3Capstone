@@ -6,6 +6,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.techelevator.model.Survey;
 import com.techelevator.parkDao.ParkDao;
@@ -37,17 +38,28 @@ public class ParkController
 	
 	@RequestMapping(path="/survey", method=RequestMethod.GET)
 	public String getSurveyForm(ModelMap modelHolder) {
-		
+		modelHolder.put("park", parkDao.getAllParks());
+
 		return "survey";
 	}
 	
 	@RequestMapping(path="/survey", method=RequestMethod.POST)
-	public String postSurveyInfo(String parkcode, String state, String emailaddress, String activitylevel) {
+	public String postSurveyInfo(@RequestParam String parkcode,
+								 @RequestParam String state,
+								 @RequestParam String emailaddress,
+								 @RequestParam String activitylevel,
+								 RedirectAttributes flashScope) 
+	{
 		Survey survey = new Survey();
 		survey.setParkcode(parkcode);
 		survey.setState(state);
 		survey.setEmailaddress(emailaddress);
 		survey.setActivitylevel(activitylevel);
+		
+		parkDao.saveNewSurvey(survey);
+		
+		flashScope.addFlashAttribute("message","Thank your for participating in the Daily Survey!!");
+
 		return "redirect:/surveyResults";
 	}
 	

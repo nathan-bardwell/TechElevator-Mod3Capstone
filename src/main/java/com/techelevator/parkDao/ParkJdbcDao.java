@@ -11,6 +11,7 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
 import com.techelevator.model.Park;
+import com.techelevator.model.Survey;
 
 
 @Component
@@ -68,6 +69,16 @@ public class ParkJdbcDao implements ParkDao
 			System.out.println(results);
 		}
 		return popularParks;
+	}
+	@Override
+	public void saveNewSurvey(Survey survey)
+	{
+		String saveSurveySql="insert into survey_result (parkcode, emailaddress, state, activitylevel) values (?,?,?,?);";
+		jdbcTemplate.update(saveSurveySql, survey.getParkcode(), 
+										   survey.getEmailaddress(),
+										   survey.getState(),
+										   survey.getActivitylevel());
+
 	}
 
 	private Park mapRowToPark(SqlRowSet results)

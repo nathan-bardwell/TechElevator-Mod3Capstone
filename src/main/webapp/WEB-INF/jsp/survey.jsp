@@ -24,17 +24,17 @@
 		<form action="${newSurveyUrl}" method="post">
 
 			<div class="form-group">
-				<label for="Favorite Park">Favorite Park</label> <select
-					class="form-control" name="favoritePark">
-					<c:forEach var="park" items="${park}">
-						<option>${park.parkname}</option>
-					</c:forEach>
-				</select>
+				<label for="Favorite Park">Favorite Park</label> 
+				<select class="form-control" name="parkcode">
+ 					<c:forEach var="park" items="${park}">
+ 						<option value="${park.parkcode}">${park.parkname}</option>
+ 					</c:forEach>
+ 				</select>
 			</div>
 
 			<div class="form-group">
-				<label for="emailAddress">Email address</label> <input type="email"
-					class="form-control" name="emailAddress"
+				<label for="emailaddress">Email address</label> <input type="email"
+					class="form-control" name="emailaddress"
 					placeholder="name@example.com">
 			</div>
 
@@ -104,22 +104,22 @@
 
 			<div class="form-group">
 				<div class="form-check">
-					<input class="form-check-input" type="radio" name="activityLevel"
+					<input class="form-check-input" type="radio" name="activitylevel"
 						value="inactive" checked> <label class="form-check-label"
 						for="activityLevel"> Inactive </label>
 				</div>
 				<div class="form-check">
-					<input class="form-check-input" type="radio" name="activityLevel"
+					<input class="form-check-input" type="radio" name="activitylevel"
 						id="sedentary" value="sedentary" > <label
 						class="form-check-label" for="activityLevel"> Sedentary </label>
 				</div>
 				<div class="form-check">
-					<input class="form-check-input" type="radio" name="activityLevel"
+					<input class="form-check-input" type="radio" name="activitylevel"
 						id="active" value="active" > <label
 						class="form-check-label" for="activityLevel"> Active </label>
 				</div>
 				<div class="form-check">
-					<input class="form-check-input" type="radio" name="activityLevel"
+					<input class="form-check-input" type="radio" name="activitylevel"
 						id="extremelyActive" value="extremelyActive" > <label
 						class="form-check-label" for="activityLevel"> Extremely
 						Active </label>
