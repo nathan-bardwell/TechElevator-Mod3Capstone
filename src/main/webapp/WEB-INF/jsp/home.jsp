@@ -8,8 +8,6 @@
 
 <div class="jumbotron">
 
-<audio src="https://www.youtube.com/watch?v=fWNaR-rxAic" type="audio/mpeg"></audio>
-
 	<div class="ParkContent">
 		<c:forEach var="parks" items="${park}">
 		<div class="row">
