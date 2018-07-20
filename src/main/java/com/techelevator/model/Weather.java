@@ -39,8 +39,19 @@ public class Weather
 	}
 
 
-	public void setForecastMessage(String forecastMessage) {
-		this.forecastMessage = forecastMessage;
+	public void setForecastMessage(String forecast) {
+		if (forecast.equals("snow")) {
+			this.forecastMessage = "Pack snowshoes!";
+		}
+		if (forecast.equals("rain")) {
+			this.forecastMessage = "Pack rain gear!";
+		}
+		if (forecast.equals("thunderstorms")) {
+			this.forecastMessage = "Seek shelter. Avoid hiking on exposed ridges!";
+		}
+		if (forecast.equals("sunny")) {
+			this.forecastMessage = "Pack sunblock!";
+		}
 	}
 
 

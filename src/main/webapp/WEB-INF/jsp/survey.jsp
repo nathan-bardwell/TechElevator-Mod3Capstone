@@ -14,6 +14,7 @@
     <c:forEach var="park" items="${park}">
     <c:url var="parkImgUrl" value="/img/parks/${park.parkcode.toLowerCase()}.jpg" />
     <div class="carousel-item">
+    <c:url var="detailUrl" value="/detail"/>
       <a href="${detailUrl}?parkcode=${park.parkcode}"><img class="d-block w-100" id ="Cimg"src="${parkImgUrl}" alt="park pic"></a>
     <div class="carousel-caption d-none d-md-block">
     <h5><c:out value="${park.parkname}"/></h5>
@@ -27,7 +28,7 @@
 		<form action="${newSurveyUrl}" method="post">
 
 			<div class="form-group">
-				<label for="Favorite Park">Favorite Park</label> 
+				<label for="Favorite Park"><strong>Favorite Park</strong></label> 
 				<select class="form-control" name="parkcode">
  					<c:forEach var="park" items="${park}">
  						<option value="${park.parkcode}">${park.parkname}</option>
@@ -36,13 +37,13 @@
 			</div>
 
 			<div class="form-group">
-				<label for="emailaddress">Email address</label> <input type="email"
+				<label for="emailaddress"><strong>Email address</strong></label> <input type="email"
 					class="form-control" name="emailaddress"
 					placeholder="name@example.com">
 			</div>
 
 			<div class="form-group">
-				<label for="state">Where ye be from?</label> <select
+				<label for="state"><strong>Where ye be from?</strong></label> <select
 					class="form-control" name="state">
 					<optgroup label="states">
             <option value="AL">AL</option>

@@ -5,70 +5,56 @@
 <div class="jumbotron parkInfo">
 <div class="row">
 <div class="col-sm info">
-		
-			<div><strong><c:out value="${park.parkname}" /></strong>
+		<div class="detailHead">
+			<div id="parkName"><strong><c:out value="${park.parkname}" /></strong>
 			<c:out value=" - ${park.state}" /><br>Founded in the year <c:out
 					value="${park.yearfounded}" /></div>
 		
 			<c:url var="parkImgUrl"
 				value="/img/parks/${park.parkcode.toLowerCase()}.jpg" />
-			<div><img id="parkImg" alt="parkImg" src="${parkImgUrl}"><br>
-			<strong>"<c:out value="${park.inspirationalquote}" />"
-			</strong><br>- <c:out value="${park.inspirationalquotesource}" /></div>
-			<div><c:out value="${park.parkdescription}" /></div>
-		</div>
+			<div class="row"><div class="col-sm-6"><img id="parkImg" alt="parkImg" src="${parkImgUrl}"></div>
+			<div class="col-sm-6 align-middle" id="parkQuote"><strong>"<c:out value="${park.inspirationalquote}" />"
+			</strong><br>- <c:out value="${park.inspirationalquotesource}" /></div></div>
+			<div class="row"><div class="col-12" id="parkDescription"><c:out value="${park.parkdescription}" /></div></div>
+		</div></div>
 </div>
 		<div class="row">
-			<th>Annual Visitors</th>
-			<div class="col- info"><c:out value="${park.annualvisitorcount}" /> visitors</div>
+			
+			<div class="col-sm info"><strong>Annual Visitors</strong><br><c:out value="${park.annualvisitorcount}" /> visitors</div>
+		
+			<div class="col-sm info"><strong>Entry Fee</strong><br>$<c:out value="${park.entryfee}" />.00</div>
+		
+			<div class="col-sm info"><strong>Park Acreage</strong><br><c:out value="${park.acreage}" /> acres</div>
+	
+			<div class="col-sm info"><strong>Park Elevation</strong><br><c:out value="${park.elevationinfeet}" /> ft</div>
+			
 		</div>
+		
 		<div class="row">
-			<th>Entry Fee</th>
-			<div class="col- info">$<c:out value="${park.entryfee}" />.00
-			</div>
-		</div>
-		<div class="row">
-			<th>Park Acreage</th>
-			<div class="col- info"><c:out value="${park.acreage}" /> acres</div>
-		</div>
-		<div class="row">
-			<th>Park Elevation</th>
-			<div class="col- info"><c:out value="${park.elevationinfeet}" /> ft</div>
-		</div>
-		<div class="row">
-			<th>Miles of Trail</th>
-			<div class="col- info"><c:out value="${park.milesoftrail}" /> mi</div>
-		</div>
-		<div class="row">
-			<th>Number of Campsites</th>
-			<div class="col- info">
-			<c:out value="${park.numberofcampsites}" /></div>
-		</div>
-		<div class="row">
-		<th>Climate</th>
-		<div class="col- info">
-		<c:out value="${park.climate}" /></div>
-		</div>
-		<div class="row">
-			<th>Number of Animal Species</th>
-			<div class="col- info">
-			<c:out value="${park.numberofanimalspecies}" /> different species</div>
+			
+			<div class="col-sm info"><strong>Miles of Trail</strong><br><c:out value="${park.milesoftrail}" /> mi</div>
+
+			<div class="col-sm info"><strong>Number of Campsites</strong><br><c:out value="${park.numberofcampsites}" /></div>
+	
+			<div class="col-sm info"><strong>Climate</strong><br><c:out value="${park.climate}" /></div>
+		
+			<div class="col-sm info"><strong>Number of Animal Species</strong><br><c:out value="${park.numberofanimalspecies}" /> different species</div>
 		</div>
 
 	</div>
 	<div class="jumbotron">
-		<ul>
-
+		
+<div id="weatherHead">5 Day Weather Forecast</div>
 			<c:url var="formActionUrl" value="/detail" />
-			<li class="nav-item nav-link"><form
+			<div class="row justify-content-center"><div class="col- weather"><strong>Select Preferred Temperature Unit:</strong><br><form
 					action="${formActionUrl}?parkcode=${park.parkcode}" method="post">
 					<label for="tempUnit"><input name="tempUnit" type="radio"
 						value="F">Fahrenheit</label> <label for="tempUnit"><input
 						name="tempUnit" type="radio" value="C">Celcius</label> <input
 						type="submit" class="btn btn-primary">
-				</form></li>
+				</form></div></div>
 
-		</ul>
+		
 		<div class="row justify-content-center">
 			<div class="col- weather ">
 				Today
@@ -84,6 +70,7 @@
 					<c:url var="todayWeatherUrl"
 						value="/img/weather/${weatherInfo[0].forcast}.png" />
 					<img src="${todayWeatherUrl}" alt="${weatherInfo[0].forcast}" /><br>
+					<c:out value="${weatherInfo[0].forecastMessage}"/><br>
 					Low:
 					<c:out value="${low}" />&#xb0 <c:out value="${tempUnit}"/>
 					<br> High:
@@ -109,7 +96,9 @@
 					<div class="weatherContent D">
 						<c:url var="weatherUrl"
 							value="/img/weather/${weather.forcast}.png" />
-						<img src="${weatherUrl}" alt="${weather.forcast}" /><br> Low:
+						<img src="${weatherUrl}" alt="${weather.forcast}" /><br> 
+						<c:out value="${weather.forecastMessage}"/><br>
+						Low:
 						<c:out value="${low}" />&#xb0 <c:out value="${tempUnit}"/>
 						<br> High:
 						<c:out value="${high}" />&#xb0 <c:out value="${tempUnit}"/>

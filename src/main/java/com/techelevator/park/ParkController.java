@@ -40,7 +40,7 @@ public class ParkController
 	}
 	
 	@RequestMapping(path ="/detail" , method = RequestMethod.POST)
-	public String setUserTemp(@RequestParam(defaultValue = "F") String tempUnit, @RequestParam String parkcode, HttpSession userSession) {
+	public String setUserTemp(String tempUnit, @RequestParam String parkcode, HttpSession userSession) {
 		userSession.setAttribute("tempUnit", tempUnit);
 		return "redirect:/detail?parkcode="+parkcode;
 	}
