@@ -1,5 +1,7 @@
 package com.techelevator.park;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -22,18 +24,25 @@ public class ParkController
 	@Autowired
 	private WeatherDao weatherDao;
 
-	@RequestMapping(path = { "/", "/home" }, method = RequestMethod.GET)
+	@RequestMapping(path = {"/", "/home"} , method = RequestMethod.GET)
 	public String getAllParks(ModelMap modelHolder)
 	{
 		modelHolder.put("park", parkDao.getAllParks());
 		return "home";
 	}
 	
+	
 	@RequestMapping(path="/detail", method=RequestMethod.GET)
 	public String getParkDetail(@RequestParam String parkcode, ModelMap modelHolder, ModelMap weatherHolder) {
 		modelHolder.put("park", parkDao.getParkDetail(parkcode));
 		weatherHolder.put("weatherInfo", weatherDao.getParkWeather(parkcode));
 		return "detail";
+	}
+	
+	@RequestMapping(path ="/detail" , method = RequestMethod.POST)
+	public String setUserTemp(@RequestParam(defaultValue = "F") String tempUnit, @RequestParam String parkcode, HttpSession userSession) {
+		userSession.setAttribute("tempUnit", tempUnit);
+		return "redirect:/detail?parkcode="+parkcode;
 	}
 	
 	@RequestMapping(path="/survey", method=RequestMethod.GET)
@@ -68,6 +77,7 @@ public class ParkController
 		modelHolder.put("popularParks", parkDao.getPopularParks());
 		return "surveyResults";
 	}
+	
 	
 	
 	

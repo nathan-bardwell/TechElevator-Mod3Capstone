@@ -41,8 +41,11 @@ public class WeatherJdbcDao implements WeatherDao{
 		weather.setParkcode(results.getString("parkcode"));
 		weather.setFivedayforcastvalue(results.getInt("fivedayforecastvalue"));
 		weather.setForcast(results.getString("forecast"));
-		weather.setHigh(results.getInt("high"));
-		weather.setLow(results.getInt("low"));
+		weather.setHighF(results.getInt("high"));
+		weather.setLowF(results.getInt("low"));
+		weather.setHighC(results.getInt("high"));
+		weather.setLowC(results.getInt("low"));
+		weather.setTempMessage(results.getInt("high"), results.getInt("low"));
 		
 		return weather;
 	}

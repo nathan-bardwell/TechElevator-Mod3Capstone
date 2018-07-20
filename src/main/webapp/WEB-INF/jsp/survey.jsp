@@ -1,20 +1,23 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@include file="common/header.jspf"%>
-
+<div class="jumbotron">
 <c:set var="pageTitle" value="survey" />
 <c:url var="newSurveyUrl" value="/survey" />
 <div class="row">
 	<div class="col-sm">
-		<div class="carousel slide" data-ride="carousel">
+		<div class="carousel slide" data-ride="carousel" data-interval="3000">
   <div class="carousel-inner">
     <div class="carousel-item active">
-    <c:url var="cvnpImgUrl" value="/img/parks/parksky.jpeg"/>
-      <img class="d-block w-100" src="${cvnpImgUrl}" alt="park pic">
+    <c:url var="npLogoImgUrl" value="/img/parks/arrowheadNP.png"/>
+      <img class="d-block w-100" src="${npLogoImgUrl}" alt="park pic">
     </div>
     <c:forEach var="park" items="${park}">
     <c:url var="parkImgUrl" value="/img/parks/${park.parkcode.toLowerCase()}.jpg" />
     <div class="carousel-item">
-      <img class="d-block w-100" src="${parkImgUrl}" alt="park pic">
+      <a href="${detailUrl}?parkcode=${park.parkcode}"><img class="d-block w-100" src="${parkImgUrl}" alt="park pic"></a>
+    <div class="carousel-caption d-none d-md-block">
+    <h5><c:out value="${park.parkname}"/></h5>
+  </div>
     </div>
     </c:forEach>
   </div>
@@ -128,6 +131,7 @@
 			<button class="btn btn-primary" type="submit">Submit form</button>
 		</form>
 	</div>
+</div>
 </div>
 
 <%@include file="common/footer.jspf"%>

@@ -1,7 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@include file="common/header.jspf"%>
 <c:set var="pageTitle" value="surveyResults" />
-
+<div class="jumbotron">
 <div class="ParkContent">
 		<c:forEach var="parks" items="${popularParks}">
 		<div class="row">
@@ -17,5 +17,6 @@
 			</div>
 		</c:forEach>
 	</div> 
+	</div>
 
 <%@include file="common/footer.jspf"%>

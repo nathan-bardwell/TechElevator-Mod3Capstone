@@ -6,7 +6,7 @@
 	<!-- park Content -->
 
 
-
+<div class="jumbotron">
 
 	<div class="ParkContent">
 		<c:forEach var="parks" items="${park}">
@@ -17,12 +17,12 @@
 				<a href="${detailUrl}?parkcode=${parks.parkcode}"><img src="${parkImgUrl}" class="img-fluid"></a>
 			</div>
 			<div class="parkNotes col-sm">
-				<strong><c:out value="${parks.parkname}" /></strong><br><br>
+				<a href="${detailUrl}?parkcode=${parks.parkcode}"><strong><c:out value="${parks.parkname}" /></strong></a><br><br>
 				<c:out value="${parks.parkdescription}" />
 			</div>
 			</div>
 		</c:forEach>
 	</div> 
-
+</div>
 
 <%@include file="common/footer.jspf"%>
