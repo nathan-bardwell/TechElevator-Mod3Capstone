@@ -3,7 +3,7 @@
 <div class="jumbotron">
 <c:set var="pageTitle" value="survey" />
 <c:url var="newSurveyUrl" value="/survey" />
-<div class="row">
+<div id =" surveyDiv"class="row">
 	<div class="col-sm">
 		<div class="carousel slide" data-ride="carousel" data-interval="3000">
   <div class="carousel-inner">
@@ -14,7 +14,7 @@
     <c:forEach var="park" items="${park}">
     <c:url var="parkImgUrl" value="/img/parks/${park.parkcode.toLowerCase()}.jpg" />
     <div class="carousel-item">
-      <a href="${detailUrl}?parkcode=${park.parkcode}"><img class="d-block w-100" src="${parkImgUrl}" alt="park pic"></a>
+      <a href="${detailUrl}?parkcode=${park.parkcode}"><img class="d-block w-100" id ="Cimg"src="${parkImgUrl}" alt="park pic"></a>
     <div class="carousel-caption d-none d-md-block">
     <h5><c:out value="${park.parkname}"/></h5>
   </div>

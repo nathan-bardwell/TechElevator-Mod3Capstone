@@ -2,10 +2,9 @@
 <%@include file="common/header.jspf"%>
 <c:set var="pageTitle" value="detail" />
 
-
-	<div class="jumbotron parkInfo">
+<div class="jumbotron parkInfo">
 <div class="row">
-<div class="col- info">
+<div class="col-sm info">
 		
 			<div><strong><c:out value="${park.parkname}" /></strong>
 			<c:out value=" - ${park.state}" /><br>Founded in the year <c:out
@@ -13,7 +12,7 @@
 		
 			<c:url var="parkImgUrl"
 				value="/img/parks/${park.parkcode.toLowerCase()}.jpg" />
-			<div><img alt="parkImg" src="${parkImgUrl}"><br>
+			<div><img id="parkImg" alt="parkImg" src="${parkImgUrl}"><br>
 			<strong>"<c:out value="${park.inspirationalquote}" />"
 			</strong><br>- <c:out value="${park.inspirationalquotesource}" /></div>
 			<div><c:out value="${park.parkdescription}" /></div>
@@ -41,17 +40,19 @@
 			<div class="col- info"><c:out value="${park.milesoftrail}" /> mi</div>
 		</div>
 		<div class="row">
-			<div class="col- info">Number of Campsites
+			<th>Number of Campsites</th>
+			<div class="col- info">
 			<c:out value="${park.numberofcampsites}" /></div>
 		</div>
 		<div class="row">
-			<div class="col- info">Climate
+		<th>Climate</th>
+		<div class="col- info">
 		<c:out value="${park.climate}" /></div>
 		</div>
 		<div class="row">
-			<div class="col- info">Number of Animal Species
-			<c:out value="${park.numberofanimalspecies}" /> different
-				species</div>
+			<th>Number of Animal Species</th>
+			<div class="col- info">
+			<c:out value="${park.numberofanimalspecies}" /> different species</div>
 		</div>
 
 	</div>
@@ -120,7 +121,7 @@
 			</c:forEach>
 		</div>
 	</div>
-
+</div>
 
 
 
